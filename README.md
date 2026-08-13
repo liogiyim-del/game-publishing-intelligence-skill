@@ -1,129 +1,467 @@
-# 动态游戏发行与营销情报 Skill — V0.1.2
+Game Publishing Intelligence Skill
 
-## 这是什么？
+Turn game-industry signals into evidence-bounded publishing decisions.
 
-这是一个面向海外发行、市场中台、内容营销、社媒、PR、本地化及相关协同团队的**事件驱动游戏行业情报 Skill**。
+面向海外发行、市场中台、营销、PR、本地化及相关协同团队的事件驱动游戏发行与营销情报 Skill。
 
-它不按“帖子/视频”写新闻摘要，而是把多个公开来源整理为一个完整事件，再回答：
+它不是新闻摘要器，也不是固定周期的“行业周报生成器”。
 
-- 发生了什么？
-- 为什么现在值得看？
-- 对发行哪一环有影响？
-- 证据支持到哪一步？
-- 哪些是事实、哪些是分析、哪些还需要验证？
-- 下一步最值得监测什么？
+它的核心任务是把公开市场信号转化为：
 
-## V0.1.2的使用方式
+Event → Evidence → Business Problem → Mechanism → Decision → Monitoring
 
-V0.1.2 先采用**用户主动调用**。
+Why this exists
 
-直接输入类似：
+传统游戏行业周报常见几个问题：
 
-> 扫描最近 7 天全球游戏行业，找出最值得海外发行关注的事件。
+信息很多，但不知道什么真正值得发行关注；
 
-或：
+容易把播放、互动、热度误写成真实业务效果；
 
-> 深拆某款游戏最近的 Demo / 预购 / 大版本 / Campaign / 舆情。
+单个平台或少量评论被外推成整体玩家态度；
 
-或：
+产品、平台、地区和生命周期信息没有被放进同一条事件链；
 
-> 看最近 30 天韩国市场有哪些值得关注的游戏发行与营销动作。
+报告只回答“发生了什么”，没有回答“对发行意味着什么”；
 
-Skill 会按以下流程工作：
+同一事件反复出现，但没有说明“这次新增了什么”。
 
-`任务解析 → 产品坐标 → 完整事件链 → 定向研究 → 证据补全 → 事件价值判断 → 模块分析 → QA → HTML`
+这个 Skill 的目标不是让 AI 搜更多新闻，而是让 AI：
 
-## 正式输出
+先找对事情，再把事实找全，再做业务判断，最后才生成报告。
 
-只有两类：
+What it does
 
-1. **P0 即时情报快讯**
-2. **动态游戏发行与营销情报报告（单一 HTML）**
+这个 Skill 可以用于：
 
-综合报告中可以包含：
-- 首屏 3–5 条结论
-- 重点案例
-- 专项深度复盘
-- 短事件
-- 持续监测
-- Calendar
-- 来源与运行记录
+扫描最近 7 / 14 / 30 天值得发行关注的游戏行业事件；
 
-## 最重要的约束
+深拆某款游戏的 Demo、Beta、Early Access、预购、大版本、Campaign 或舆情；
 
-Skill 不允许：
-- 用播放量推断收入或回流
-- 把活动规则写成活动效果
-- 把单平台评论写成全球玩家态度
-- 把相关性写成因果
-- 为凑数量塞低价值新闻
-- 无来源时编造数字、图片、政策或玩家观点
+分析某个国家 / 地区 / 平台的发行变化；
 
-## 平台
+还原产品从首次公开到发售、更新、回应的完整事件链；
 
-V0.1.2 设计为平台无关，优先适配：
-- Codex
-- WorkBuddy
+区分事实、玩家公开表达、机制分析、结果信号与待验证假设；
 
-后续可继续封装到支持 MCP、Connector、Web Search 或 Workflow 的平台。
+识别案例适用条件、失败条件和不可照搬部分；
 
-## 目录
+输出下一监测节点，以及“什么新证据会改变当前结论”；
 
-- `SKILL.md`：Skill 总规则
-- `config/`：触发、证据、来源、模块等配置
-- `schemas/`：事件与证据结构
-- `prompts/`：后续模块 Prompt
-- `templates/`：P0 与动态报告模板
-- `examples/`：Golden Examples
-- `state/`：事件档案与运行状态
-- `tests/`：UAT / QA
-- `outputs/`：实际生成结果
+生成 P0 即时快讯或单文件可视化 HTML 报告；
 
-## 当前版本
+将关键节点同步到可视化 Calendar。
 
-V0.1.2
-- 主动调用
-- 不要求后台自动定时扫描
-- 当前 `dynamic_report.html` 作为 Golden Template
-- Golden Examples：PRAGMATA / Modern Warfare 4 / Crimson Desert
+How it works
 
-## V0.1 推荐执行入口
+User Request
+    ↓
+Discovery
+    ↓
+Normalize / Dedup
+    ↓
+Evidence Enrichment
+    ↓
+Evidence & Value Routing
+    ↓
+Module Analysis
+    ↓
+Business Analysis
+    ↓
+Calendar Update
+    ↓
+Final QA
+    ↓
+HTML Report
 
-在 Codex / WorkBuddy 中，优先从 `SKILL.md` 开始加载规则，然后按需调用：
+默认执行模式：
 
-1. `prompts/discovery.md`
-2. `prompts/normalize_dedup.md`
-3. `prompts/evidence_enrichment.md`
-4. 对应专项 Prompt
-5. `prompts/business_analysis.md`
-6. `prompts/calendar_update.md`
-7. `prompts/final_qa.md`
-8. `prompts/report_compose.md`
+full_pipeline
 
-Golden Examples 位于 `examples/`，用于约束分析风格和证据边界。
+只有用户明确要求“先只看候选 / 只做 Discovery / 只给 Research Brief / 不要 HTML / 只做 QA”时，才允许中途停止。
 
+What makes it different
 
-## V0.1.2 默认运行方式
+1. Event-first, not feed-first
 
-默认执行模式为 `full_pipeline`。
+分析单位是 Event（事件），不是单条帖子、视频或新闻。
 
-当用户说“扫描最近7天”“跑一下Skill”“生成一期情报”等任务时，默认一路执行到**实际生成 HTML 文件**，不再停在 Markdown 摘要。
+同一事件的官方公告、商店变化、媒体报道、玩家讨论、公开数据和后续回应，会尽量被还原到同一条事件链中。
 
-只有用户明确说“先只看候选 / 不要生成报告 / 只做 Discovery / 只给 Research Brief”时，才允许中途停止。
+2. Evidence-bounded reasoning
+
+Skill 强制区分：
+
+已确认事实
+
+玩家公开表达
+
+报告机制分析
+
+实际结果信号
+
+待验证行为假设
+
+核心约束：
+
+规则存在 ≠ 效果发生
+播放量高 ≠ 发行成功
+玩家公开表达 ≠ 玩家真实心理
+结果同时出现 ≠ 单一动作可归因
+单一平台声音 ≠ 全球玩家态度
+
+3. Product coordinates before analysis
+
+重点案例必须先建立产品坐标，包括产品 / IP、开发商 / 发行商、品类、商业模式、生命周期、市场、平台、目标用户、业务目标和公开数据可得性。
+
+无法确认时显式标记：
+
+confirmed
+partially_confirmed
+inferred
+unknown
+not_applicable
+
+4. Full release path
+
+重点案例会按适用性回溯：
+
+首次公开
+→ 商店页 / Wishlist
+→ 媒体 / 线下试玩
+→ 测试
+→ Demo
+→ Early Access
+→ 预购
+→ 正式发售
+→ 首轮数据
+→ 里程碑
+→ 后续更新 / 回应
+
+5. Business reasoning, not summary
+
+正式案例需要回答：
+
+为什么现在需要看？
+
+具体改变了什么？
+
+解决的是哪个业务问题？
+
+核心机制是什么？
+
+Expected Impact Chain 是什么？
+
+为什么可能有效 / 失败？
+
+适用条件是什么？
+
+哪些结果不能归因？
+
+最值得验证什么？
+
+什么新证据会改变当前结论？
+
+Output types
+
+P0 即时情报快讯
+
+用于重大政策 / 平台规则、突发产品节点、重大舆情 / 风险、Convention 重大官宣、跨平台危机。
+
+固定标记：
+
+P0 初步快讯｜事件仍在发展，后续将在动态情报报告中更新完整信息。
+
+Dynamic Intelligence Report
+
+单一 HTML，可包含：
+
+首页 3–5 条发行优先结论
+
+重点案例深拆
+
+短事件卡
+
+专项舆情 / 政策 / Convention 深度
+
+Radar
+
+持续监测
+
+Calendar
+
+来源与运行记录
 
 3–5 个案例只是常规触发参考，不是硬门槛。至少 1 个正式事件通过价值与证据闸门即可生成动态 HTML。
 
+Visualization-first reporting
 
-## V0.1.2 视觉与 Calendar 更新
+V0.1.2 的默认视觉层级：
 
-这一版把 Calendar 和报告可读性作为正式 Skill 规则：
+结论 > 机制 > 关键数据 > 证据
 
-- Calendar 改为一个全宽大日历；
-- 所有关键节点直接标在日期格；
-- P0 / 重点 / 关注 / 监测使用稳定视觉层级；
-- 预计/未确认节点使用虚线状态；
-- 删除 Calendar 下方重复日期表；
-- 跨月节点使用未来30–90天轻量节点带；
-- 重点案例优先用 Timeline、Flow、Before/After、Asset Matrix、地区×平台矩阵表达；
-- 默认视觉顺序：结论 → 机制 → 数据 → 证据。
+优先使用：
 
+Timeline：发行路径、危机扩散、Campaign 节奏
+
+Flow / Arrow Chain：机制、漏斗、生命周期迁移
+
+Before / After：版本、玩法、规则变化
+
+Asset Matrix：PV、OOH、UGC、KOL、商店资产
+
+Regional × Platform Matrix：市场与平台差异
+
+Key Metrics：最多 3 个最重要数字
+
+Insight Cards：Judgement / WHY / SO WHAT
+
+Large Calendar：关键日期、时间范围、优先级和确认状态
+
+Calendar V2
+
+Calendar 采用一个全宽大日历：
+
+🔴 P0 / 战略级
+
+🟠 重点
+
+🔵 关注
+
+⚪ 监测
+
+虚线：预计 / 未确认
+
+不再使用“小日历 + 下方重复日期表”。
+
+Golden Examples
+
+PRAGMATA
+
+Pattern：Demo as Product Education
+
+当用户已有兴趣但仍难通过 PV 理解复合玩法时，Demo 可承担产品教育和购买前验证。
+
+同时必须保留：
+
+销量结果不能直接归因于 Demo。
+
+Modern Warfare 4
+
+Pattern：Cross-title Lifecycle Migration
+
+预购锁定
+→ 旧作即时奖励
+→ 旧作回流
+→ 跨游戏任务
+→ 跨作资产
+→ 新作迁移
+
+必须区分：
+
+模式迁移 ≠ 整体 DAU 增长
+
+Crimson Desert
+
+Pattern：Risk Closure
+
+Asset Closure
++
+Process Closure
++
+Trust Closure
+=
+Incident Closure
+
+必须区分：
+
+补丁上线 ≠ 风险事件已经关闭
+
+Evidence rules
+
+当前证据状态：
+
+clear_signal
+limited_signal
+to_verify
+not_applicable
+
+普通重点事件：官方 / 数据 / 玩家或媒体三类证据至少满足两类。
+
+重大舆情 / 反面案例：三类必须齐全。
+
+政策 / 平台规则：必须提供政府、监管或平台官方原文。
+
+Quality Gate
+
+任何重点案例缺少以下五项之一，直接 FAIL：
+
+产品坐标
+
+地区与平台
+
+完整链路
+
+案例专属机制
+
+证据边界
+
+同时检查：
+
+是否把相关性写成因果
+
+是否把规则写成效果
+
+是否把单平台反馈外推为全球
+
+是否混淆 Demo / Beta / Early Access
+
+是否把上架平台误写成商业合作
+
+是否重复旧事件
+
+是否存在无依据“行业领先 / 显著提升”
+
+是否有下一监测节点
+
+是否存在真正有信息增量的可视化
+
+Quick Start
+
+行业扫描
+
+使用 Game Publishing Intelligence Skill。
+
+扫描最近 7 天全球游戏行业，
+寻找真正值得海外发行市场中台关注的事件。
+
+默认使用 full_pipeline。
+不因为播放量高就收录。
+不凑案例。
+对证据不足的事件只标记待验证。
+
+最终通过 QA 后生成单文件 HTML。
+
+市场扫描
+
+扫描最近 30 天韩国游戏市场。
+
+重点关注：
+- 产品重大节点
+- Campaign
+- 玩家公开反馈
+- 发行风险
+
+不要把英语社区外推为韩国玩家态度。
+
+单案例
+
+深拆某款游戏最近一次 Demo / Beta / 预购 / 大版本动作。
+
+先建立 Product Profile，
+再还原完整发行链，
+最后分析 Business Problem、Mechanism、适用条件、
+失败条件与最关键缺失证据。
+
+Repository structure
+
+.
+├── SKILL.md
+├── README.md
+├── QUICK_START.md
+├── CHANGELOG.md
+├── VISUAL_DESIGN_RULES.md
+├── config/
+├── prompts/
+├── schemas/
+├── examples/
+├── templates/
+├── tests/
+├── state/
+└── outputs/
+
+Platform
+
+当前设计为平台无关的 Agent-ready workflow package。
+
+优先适配：
+
+Codex
+
+WorkBuddy
+
+也可以继续封装到支持 Web Search、MCP、Connector、Workflow 或 Agent 的平台。
+
+当前版本属于主动调用型 Beta，不代表已经完成后台定时扫描、数据库服务或完整工程化部署。
+
+Current version
+
+V0.1.2 Beta
+
+已完成：
+
+Event-first workflow
+
+Full pipeline orchestration
+
+Cross-run dedup logic
+
+Evidence rules
+
+Product profile
+
+Business analysis framework
+
+Golden Examples
+
+Final QA
+
+Single-file HTML reporting
+
+Calendar V2
+
+Visualization-first rules
+
+Roadmap
+
+V0.2
+
+Evidence Model V2：Fact / Mechanism / Outcome / Attribution 分层
+
+Case Library
+
+Pattern Library
+
+新案例 Beta 测试
+
+更严格的 taxonomy / schema
+
+自动运行记录与历史对比
+
+Later
+
+Scheduled monitoring
+
+Automated P0 alerts
+
+Multi-market source adapters
+
+Persistent case database
+
+Team collaboration workflow
+
+Design principles
+
+先让 AI 找对事情，再把事实找全，再做业务判断，最后才生成漂亮报告。
+
+规则存在，不等于效果发生。
+
+如果 SO WHAT 只能写“加强 / 提升 / 重视 / 优化”，就重写或删除。
+
+好的情报不是“我分析完了”，而是“什么新证据会让我改变判断”。
+
+Status
+
+This project is currently in V0.1.2 Beta.
+
+It is an Agent-ready workflow / Skill specification, not yet a fully engineered automated intelligence platform.
