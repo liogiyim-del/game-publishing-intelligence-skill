@@ -1,0 +1,459 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/game-intelligence/event.schema.json",
+  "title": "Game Intelligence Event",
+  "type": "object",
+  "required": [
+    "event_id",
+    "title",
+    "case_title",
+    "core_claim",
+    "entities",
+    "markets",
+    "platforms",
+    "stage",
+    "event_type",
+    "priority_state",
+    "lifecycle_state",
+    "first_seen",
+    "last_updated",
+    "why_now",
+    "confirmed_facts",
+    "tags",
+    "next_watch",
+    "product_profile",
+    "evidence_state"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "建议：company_or_ip + product + event_type + canonical_start_date"
+    },
+    "title": {
+      "type": "string"
+    },
+    "case_title": {
+      "type": "string",
+      "description": "固定格式：游戏名｜核心观点"
+    },
+    "core_claim": {
+      "type": "string",
+      "description": "一句话发行结论 / Key Takeaway"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "markets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stage": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "priority_state": {
+      "type": "string",
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "unrated"
+      ]
+    },
+    "lifecycle_state": {
+      "type": "string"
+    },
+    "first_seen": {
+      "type": "string"
+    },
+    "last_updated": {
+      "type": "string"
+    },
+    "why_now": {
+      "type": "string"
+    },
+    "confirmed_facts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "change_before": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "change_after": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_watch": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_state": {
+      "type": "string",
+      "enum": [
+        "clear_signal",
+        "limited_signal",
+        "to_verify",
+        "not_applicable"
+      ]
+    },
+    "product_profile": {
+      "type": "object",
+      "required": [
+        "product_name",
+        "developer",
+        "publisher",
+        "genre",
+        "product_scale_label",
+        "business_model",
+        "operation_model",
+        "lifecycle_stage",
+        "release_status",
+        "planned_markets",
+        "event_markets",
+        "research_covered_markets",
+        "feedback_markets",
+        "release_platforms",
+        "platform_relationship",
+        "target_audience",
+        "current_business_goal",
+        "data_availability"
+      ],
+      "properties": {
+        "product_name": {
+          "type": "string"
+        },
+        "localized_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "developer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "franchise_or_new_ip": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "genre": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "product_scale_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "product_scale_evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "product_scale_confidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "business_model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "operation_model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lifecycle_stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "release_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "planned_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "event_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "research_covered_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "feedback_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "release_platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "primary_distribution_platform": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "platform_relationship": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "target_audience": {
+          "type": [
+            "string",
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "current_business_goal": {
+          "type": [
+            "string",
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "data_availability": {
+          "type": [
+            "string",
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "full_release_path": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "distribution_path": {
+      "type": [
+        "string",
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "market_scope": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ]
+    },
+    "market_scope_evidence": {
+      "type": [
+        "string",
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "event_platforms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "business_goal": {
+      "type": [
+        "string",
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "audience_segment": {
+      "type": [
+        "string",
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_properties": {
+      "type": [
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "tradability_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "account_binding_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cross_platform_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "incentive_layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "behavioral_mechanism_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "behavior_evidence_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "regional_difference": {
+      "type": [
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "crisis_response_assessment": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "case_specific_findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transferable_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "non_transferable_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "targeted_research_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "field_status": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "enum": [
+          "confirmed",
+          "partially_confirmed",
+          "inferred",
+          "unknown",
+          "not_applicable"
+        ]
+      }
+    }
+  },
+  "additionalProperties": true
+}

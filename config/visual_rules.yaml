@@ -1,0 +1,31 @@
+version: 0.1.2
+principle: 能用图说明的，不优先用段落；能用结构表达的，不优先用重复表格；能5秒看懂的，不让用户读30秒。
+visual_priority:
+- 结论
+- 机制
+- 关键数据
+- 证据
+preferred_visuals:
+  timeline: 发行路径、危机扩散、Campaign节奏、产品生命周期
+  flow: 机制链、漏斗、跨作迁移、风险关闭路径
+  before_after: 版本改动、规则调整、产品变化
+  asset_matrix: PV、OOH、UGC、KOL、商店素材与平台拆分
+  regional_platform_matrix: 地区 × 平台差异
+  calendar: 未来节点、风险窗口、优先级和确认状态
+  key_metrics: 最多3个最关键数字代替长段数据说明
+  insight_cards: Judgement / WHY / SO WHAT
+default_rules:
+- 每个重点深拆至少包含1个真正有信息增量的结构图或可视化。
+- 涉及变化必须优先使用 Before/After。
+- 涉及时间过程必须优先使用 Timeline。
+- 涉及机制必须优先使用 Flow/Arrow Chain。
+- 涉及创意资产必须优先使用图片矩阵。
+- 涉及多地区/多平台差异时优先使用矩阵，而不是长段罗列。
+- Calendar只保留一个大日历，不再追加重复日期表。
+- 默认区域不展示方法论长文、全量来源、采样细节或术语解释。
+anti_patterns:
+- 同一结论在首页、卡片、正文重复三次。
+- 把所有信息都装进边框卡片。
+- 为了显得专业堆叠表格和长段文字。
+- 日历下方再重复一张事件日期表。
+- 一个重点案例没有任何视觉结构，仅靠长文字说明。

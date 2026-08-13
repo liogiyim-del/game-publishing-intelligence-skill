@@ -1,0 +1,72 @@
+version: '0.1'
+principle: 能力矩阵是建议路由，不是假设所有运行环境都已连接。运行时必须先检查实际可用工具。
+preferred:
+  official_web:
+    use:
+    - 产品事实
+    - 政策/规则
+    - 发售/更新/公告
+    priority: highest
+  Steam:
+    use:
+    - PC商店
+    - 评论
+    - 版本节点
+  SteamDB_or_Charts:
+    use:
+    - 公开在线趋势
+    note: 不等于DAU或收入
+  App_Store:
+    use:
+    - 手游详情
+    - 评分评论
+    - 版本历史
+  YouTube:
+    use:
+    - 内容传播
+    - 创作者
+    - 官方视频
+  Twitch:
+    use:
+    - 直播生态
+    - 公开CCV/场次
+  Reddit:
+    use:
+    - 海外社区表达
+    boundary: 不得外推全球
+  X:
+    use:
+    - 官号动态
+    - 公开玩家表达
+  Instagram:
+    use:
+    - 素材传播
+  TikTok:
+    use:
+    - 短视频传播
+  Bilibili:
+    use:
+    - 国内内容生态
+  Naver_Blog:
+    use:
+    - 韩国公开内容动态
+  industry_media:
+    use:
+    - 事件发现
+    - 背景解释
+    boundary: 能回原始来源时优先回原始来源
+conditional_or_unstable:
+  Xiaohongshu: 可能需要Cookie；失败则使用公开搜索降级
+  Weibo: 返回可能不完整；可用搜索补充
+  Zhihu: 可能403；使用搜索降级
+  Douyin_CN: 纯抓取不稳定；不得用TikTok替代后声称等同国内抖音
+not_precisely_available_by_default:
+  SensorTower_AppMagic: 付费SaaS；无授权时不能输出精确下载/收入估算
+  DataEye: 无授权时不能完整覆盖投放素材/投放数据
+  IMUR: 无连接时不能冒充腾讯内部市场数据
+  precise_DAU_MAU_revenue_GMV: 通常为企业内部数据；无官方披露不得输出
+failure_policy:
+- 标记未覆盖
+- 说明降级来源
+- 不编造数据
+- 不把替代来源冒充原来源

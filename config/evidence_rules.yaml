@@ -1,0 +1,71 @@
+version: '0.1'
+language: zh-CN
+principle: 证据而非数字打分；事实、玩家表达、机制分析、行为假设与效果数据必须分离。
+field_status:
+- confirmed
+- partially_confirmed
+- inferred
+- unknown
+- not_applicable
+evidence_states:
+  clear_signal:
+    label: 明确信号
+    definition: 有强事实和合理参照，足以进入结论。
+    writing_rule: 可写明确变化与发行参考，但仍不得超出证据范围。
+  limited_signal:
+    label: 有限信号
+    definition: 有事实，但样本、对照或数据不完整。
+    writing_rule: 必须显式写限制，只做有限观察。
+  to_verify:
+    label: 待验证
+    definition: 早期信号、社区推测或证据不足。
+    writing_rule: 进入预告/持续监测，不进入强结论。
+  not_applicable:
+    label: 不适用
+    definition: 该证据维度与事件无关。
+    writing_rule: 不强行填充。
+evidence_types:
+  official: 官网、商店页、更新公告、官方视频、官方社媒、政府/监管/平台原文等。
+  data: Steam、SteamDB、App Store、YouTube、Twitch、社媒互动、搜索趋势等公开数据。
+  player_media: Steam评论、Reddit、X、YouTube、Twitch聊天、App评论、TapTap、B站、媒体公开反馈等。
+minimums:
+  regular_focus_event:
+    required_count: 2
+    out_of: 3
+    types:
+    - official
+    - data
+    - player_media
+  major_crisis_or_negative_case:
+    required_count: 3
+    out_of: 3
+    types:
+    - official
+    - data
+    - player_media
+  policy_or_platform_rule:
+    must_include:
+    - official_original_source
+    note: 政府、监管或平台官方原文必须存在；媒体仅作解释补充。
+comparison_rules:
+- 优先同产品历史。
+- 其次同公司、同事件类型。
+- 再次同品类、同阶段、同市场竞品，并尽量匹配平台、商业模式和观察窗口。
+- 政策/平台规则比较正式旧规则与新规则。
+- 没有合理参照物时只做事实描述，不使用“更好/提升/跑赢/行业领先”。
+player_voice_rules:
+- 保留平台、市场、语言、时间范围、样本量、检索词和去重方法。
+- 玩家公开表达不等于真实心理。
+- 单一平台不得外推为整体或全球态度。
+- 玩家表达与行为机制假设必须分开。
+- 玩家表达与公开数据发生分歧时并列展示，不强行合并为成功/失败。
+causality_rules:
+- 活动规则存在不等于活动效果已发生。
+- 公开传播数据不得直接推断收入、下载、DAU、留存、回流、GMV、ROI或真实转化。
+- 结果同时存在不代表单一动作可归因。
+- 若无对照、漏斗、分组或明确归因证据，只能写机制、关系、有限信号或待验证。
+source_failure_rules:
+- 标记未覆盖。
+- 按 source_capabilities 使用降级来源。
+- 不得编造来源、图片、数字或玩家反馈。
+- 第三方转述不能替代政策/平台规则官方原文。

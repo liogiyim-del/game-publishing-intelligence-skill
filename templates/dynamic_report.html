@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>全球游戏发行与营销情报雷达 · 2026-08-12</title>
+<style>
+:root {
+  --bg: #F4F7FA;
+  --card: #fff;
+  --line: #DCE4EC;
+  --text: #334155;
+  --muted: #64748B;
+  --brand: #315E9B;
+  --brand-dark: #24466F;
+  --brand-soft: #EEF4FA;
+  --brand-border: #CBD9E8;
+  --action: #16756A;
+  --action-dark: #105C54;
+  --action-soft: #EDF8F5;
+  --action-border: #C7E6DF;
+  --watch: #A96820;
+  --watch-dark: #815019;
+  --watch-soft: #FFF7EA;
+  --watch-border: #EBD5B6;
+  --risk: #A23A36;
+  --risk-dark: #7E2E2B;
+  --risk-soft: #FFF2F1;
+  --risk-border: #E8C8C6;
+  --gray: #475569;
+  --font-ui: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
+  --font-data: "Segoe UI", "DIN Alternate", Arial, sans-serif;
+  --shadow-lite: 0 3px 10px rgba(15,23,42,.05);
+  --shadow-pop: 0 10px 28px rgba(15,23,42,.18);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--font-ui); font-size: 14px; line-height: 1.58; overflow-x: hidden;
+}
+.container { max-width: 1360px; margin: 0 auto; padding: 16px 18px; }
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* sections */
+.section {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 18px 20px; margin-bottom: 14px; scroll-margin-top: 64px;
+}
+h1 { font-size: 28px; margin: 0 0 6px; font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: 21px; margin: 0 0 10px; font-weight: 700; letter-spacing: -0.02em; }
+h3 { font-size: 16px; margin: 0 0 8px; font-weight: 600; }
+h4 { font-size: 14px; margin: 0 0 6px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+p { margin: 0 0 8px; }
+
+/* header bar */
+.page-header {
+  background: linear-gradient(135deg, #1a365d 0%, #24466F 60%, #315E9B 100%);
+  color: #fff; padding: 28px 0 22px; margin-bottom: 0;
+}
+.page-header .container { padding-top: 0; padding-bottom: 0; }
+.page-header h1 { color: #fff; font-size: 30px; }
+.page-header .subtitle { color: #B0C4DE; font-size: 13px; margin-top: 4px; }
+
+/* top nav */
+.topnav {
+  position: sticky; top: 0; z-index: 96;
+  background: #ffffffea; border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+.topnav .inner {
+  max-width: 1360px; height: 46px; margin: 0 auto; padding: 0 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.navlinks { display: flex; gap: 6px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.navlinks::-webkit-scrollbar { display: none; }
+.navlinks a {
+  font-size: 12px; color: #334155; padding: 4px 8px; border-radius: 8px; flex: 0 0 auto;
+}
+.navlinks a:hover { background: #eef3f8; text-decoration: none; }
+
+/* tags */
+.tag {
+  display: inline-flex; align-items: center; gap: 5px; border-radius: 999px;
+  padding: 2px 8px; font-size: 11px; font-weight: 600; border: 1px solid transparent;
+}
+.tag.p0 { background: var(--risk-soft); color: var(--risk-dark); border-color: var(--risk-border); }
+.tag.green { background: var(--action-soft); color: var(--action-dark); border-color: var(--action-border); }
+.tag.blue { background: var(--brand-soft); color: var(--brand-dark); border-color: var(--brand-border); }
+.tag.orange { background: var(--watch-soft); color: var(--watch-dark); border-color: var(--watch-border); }
+.tag.gray { background: #F1F5F9; color: #475569; border-color: #E2E8F0; }
+.tag.pulse { animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .6; } }
+
+/* decision panel */
+.decision-panel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.dcard {
+  border: 1px solid var(--line); border-left: 4px solid transparent; border-radius: 10px;
+  padding: 14px; display: flex; flex-direction: column; gap: 8px; min-height: 150px;
+}
+.dcard.p0 { background: #FFF5F5; border-color: #FECACA; border-left-color: var(--risk); }
+.dcard.green { background: var(--action-soft); border-color: var(--action-border); border-left-color: var(--action); }
+.dcard.blue { background: var(--brand-soft); border-color: var(--brand-border); border-left-color: var(--brand); }
+.dcard.orange { background: var(--watch-soft); border-color: var(--watch-border); border-left-color: var(--watch); }
+.dcard .dcard-title { font-weight: 700; font-size: 14px; }
+.dcard .dcard-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+.dcard .dcard-link { font-size: 12px;}
+
+/* event dir */
+.event-list { display: flex; flex-direction: column; gap: 8px; }
+.event-row {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+}
+.event-row:hover { background: #f8fafc; }
+.event-num { font-family: var(--font-data); font-weight: 700; color: var(--muted); min-width: 24px; }
+.event-title { flex: 1; font-weight: 600; }
+.event-signal { font-size: 11px; color: var(--muted); min-width: 60px; text-align: right; }
+
+/* deep dive */
+.dd-header {
+  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--line);
+}
+.dd-title-block { flex: 1; }
+.dd-title { font-size: 18px; font-weight: 700; }
+.dd-subtitle { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.dd-takeaway {
+  background: var(--brand-soft); border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 16px;
+  font-weight: 600; font-size: 14px; color: var(--brand-dark);
+  border-left: 3px solid var(--brand);
+}
+.info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin-bottom: 16px;
+}
+.info-block {
+  background: #F8FAFC; border-radius: 8px; padding: 12px 14px; border: 1px solid #E8ECF0;
+}
+.info-block h5 { margin: 0 0 6px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.info-block .kv { display: flex; gap: 4px; padding: 2px 0; font-size: 13px; }
+.info-block .kv-key { color: var(--muted); min-width: 90px; flex-shrink: 0; }
+.info-block .kv-val { font-weight: 500; }
+
+.evidence-box {
+  background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 12px;
+}
+.evidence-box h5 { margin: 0 0 6px; font-size: 12px; color: var(--muted); }
+.evidence-box ul { margin: 0; padding-left: 18px; }
+.evidence-box li { font-size: 13px; margin-bottom: 4px; }
+
+.insight-box {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FFF7EA 100%);
+  border: 1px solid var(--watch-border); border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 12px;
+}
+.insight-box h5 { margin: 0 0 6px; font-size: 12px; color: var(--watch-dark); }
+
+/* short card */
+.short-card {
+  border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px;
+  margin-bottom: 8px;
+}
+.short-card .sc-title { font-weight: 600;margin-bottom: 4px; }
+
+/* calendar */
+.cal-month {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+  font-size: 12px; text-align: center;
+}
+.cal-day-header { color: var(--muted); font-weight: 600; padding: 4px; }
+.cal-cell {
+  aspect-ratio: 1; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; border-radius: 6px; background: #F8FAFC;
+  font-family: var(--font-data); font-size: 13px; cursor: default;
+}
+.cal-cell.has-event { background: var(--brand-soft); color: var(--brand-dark); font-weight: 700; }
+.cal-cell.p0-event { background: var(--risk-soft); color: var(--risk-dark); font-weight: 700; }
+.cal-cell .ev-label { font-size: 8px; line-height: 1.2; }
+
+/* collapsible */
+.collapse-trigger { cursor: pointer; user-select: none; }
+.collapse-trigger:hover { color: var(--brand); }
+.collapse-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.collapse-content.open { max-height: 4000px; }
+
+/* footer */
+.page-footer {
+  color: var(--muted); font-size: 12px; text-align: center;
+  padding: 24px 0; border-top: 1px solid var(--line); margin-top: 16px;
+}
+
+/* data label */
+.data-label {
+  display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px;
+  font-family: var(--font-data); background: #E8F0FE; color: #1a56db; margin-right: 4px;
+}
+
+@media (max-width: 900px) {
+  .decision-panel { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Calendar V2 ===== */
+.calendar-shell{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.calendar-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid var(--line);background:#F8FAFC}
+.calendar-toolbar .month-title{font-family:var(--font-data);font-size:22px;font-weight:700;color:var(--brand-dark)}
+.calendar-toolbar .month-sub{margin-top:2px;color:var(--muted);font-size:12px}
+.calendar-legend{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.legend-item{display:inline-flex;align-items:center;gap:5px}.legend-dot{width:9px;height:9px;border-radius:999px;display:inline-block}
+.legend-dot.p0{background:var(--risk)}.legend-dot.high{background:var(--watch)}.legend-dot.normal{background:var(--brand)}.legend-dot.watch{background:#94A3B8}
+.legend-outline{width:16px;height:9px;border:1.5px dashed #94A3B8;border-radius:3px;display:inline-block;background:#fff}
+.calendar-weekdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:#fff;border-bottom:1px solid var(--line)}
+.calendar-weekdays div{padding:8px 10px;font-size:11px;font-weight:600;color:var(--muted);text-align:left}
+.calendar-grid-v2{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.calendar-day-v2{min-height:128px;padding:8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;position:relative}
+.calendar-day-v2:nth-child(7n){border-right:none}.calendar-day-v2.outside{background:#FAFBFC;color:#CBD5E1}.calendar-day-v2.today{background:#F8FBFF}
+.calendar-day-v2.today::after{content:'TODAY';position:absolute;top:8px;right:8px;font-size:8px;letter-spacing:.06em;color:var(--brand);font-weight:700}
+.calendar-date{font-family:var(--font-data);font-size:13px;font-weight:700;margin-bottom:7px}
+.cal-event{display:block;padding:5px 6px;margin:0 0 5px;border-radius:6px;border-left:3px solid transparent;font-size:10px;line-height:1.3;text-decoration:none!important}
+.cal-event .time{display:block;font-family:var(--font-data);font-size:9px;opacity:.72;margin-bottom:1px}.cal-event .title{font-weight:700}.cal-event .meta{display:block;margin-top:2px;font-size:9px;opacity:.72}
+.cal-event.p0{background:var(--risk-soft);color:var(--risk-dark);border-left-color:var(--risk)}.cal-event.high{background:var(--watch-soft);color:var(--watch-dark);border-left-color:var(--watch)}.cal-event.normal{background:var(--brand-soft);color:var(--brand-dark);border-left-color:var(--brand)}.cal-event.watch{background:#F1F5F9;color:#475569;border-left-color:#94A3B8}.cal-event.estimated{border-top:1px dashed #94A3B8;border-right:1px dashed #94A3B8;border-bottom:1px dashed #94A3B8}
+.calendar-span-note{padding:9px 14px;border-top:1px solid var(--line);background:#FBFCFE;display:flex;gap:8px;flex-wrap:wrap}.range-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 8px;font-size:10px;color:var(--muted);background:#fff}.range-chip strong{color:var(--text)}
+.calendar-next-month{margin-top:12px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#F8FAFC}.future-strip{display:flex;gap:8px;flex-wrap:wrap}.future-node{flex:1 1 220px;min-width:0;border-left:3px solid var(--brand);padding:8px 10px;background:#fff;border-radius:7px}.future-node.p0{border-left-color:var(--risk)}.future-node.high{border-left-color:var(--watch)}.future-node.watch{border-left-color:#94A3B8}.future-node .date{font:700 11px var(--font-data);color:var(--muted)}.future-node .name{font-size:12px;font-weight:700;margin-top:2px}.future-node .note{font-size:10px;color:var(--muted);margin-top:2px}
+@media(max-width:900px){.calendar-toolbar{align-items:flex-start;flex-direction:column}.calendar-legend{justify-content:flex-start}.calendar-day-v2{min-height:100px;padding:5px}.cal-event{font-size:9px;padding:4px}.calendar-weekdays div{padding:6px 5px;font-size:10px}}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="container">
+    <h1>🌐 全球游戏发行与营销情报雷达</h1>
+    <div class="subtitle">
+      扫描窗口：2026-08-05 ~ 2026-08-12（7天） · 覆盖：全球全行业 · 语言：zh-CN · 
+      版本：V0.1.1-RC1 · 生成时间：2026-08-12 14:50 CST
+    </div>
+  </div>
+</div>
+
+<!-- TOP NAV -->
+<div class="topnav">
+  <div class="inner">
+    <span style="font-weight:700;color:var(--brand-dark);font-size:13px;margin-right:8px;">📋 本期速览</span>
+    <div class="navlinks">
+      <a href="#decisions">首页结论</a>
+      <a href="#catalog">事件目录</a>
+      <a href="#event-1">EA私有化</a>
+      <a href="#event-2">GTA6·Take-Two</a>
+      <a href="#event-3">gamescom前瞻</a>
+      <a href="#shortcards">短事件卡</a>
+      <a href="#radar">监测雷达</a>
+      <a href="#calendar">日历</a>
+      <a href="#sources">来源</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ====== 首页决策面板 ====== -->
+<div class="section" id="decisions">
+  <h2>📌 本期3条业务优先级结论</h2>
+  <div class="decision-panel">
+
+    <div class="dcard p0">
+      <div><span class="tag p0 pulse">P0 快讯</span></div>
+      <div class="dcard-title">EA以$550亿完成私有化：全球第三大游戏发行商归入沙特PIF财团</div>
+      <div class="dcard-desc">
+        8月4日交割，EA从纳斯达克退市。这是游戏行业历史第二大收购，重塑全球发行势力版图。
+        EA旗下IP（EA SPORTS FC、Apex Legends、The Sims、Battlefield等）所有权转移，对授权合作、平台关系、电竞生态带来长期不确定性。
+      </div>
+      <a class="dcard-link" href="#event-1">查看完整分析 →</a>
+    </div>
+
+    <div class="dcard green">
+      <div><span class="tag green">重点深拆</span></div>
+      <div class="dcard-title">Take-Two Q1超预期：GTA6锁定11月19日，全年$80亿净预订额指引</div>
+      <div class="dcard-desc">
+        Take-Two FY2027 Q1净预订额$13.9亿，超公司指引。GTA5全球销量突破2.3亿份。
+        GTA6发售窗口对2026 Q4全球游戏市场有决定性分流效应——所有同期上线产品的发行窗口需重新评估。
+      </div>
+      <a class="dcard-link" href="#event-2">查看完整分析 →</a>
+    </div>
+
+    <div class="dcard orange">
+      <div><span class="tag orange">预告雷达</span></div>
+      <div class="dcard-title">gamescom 2026倒计时两周：展区首次全面售罄，ONL 8月25日直播</div>
+      <div class="dcard-desc">
+        全球最大游戏展8月26-30日在科隆举行。展区历史首次100%预订，Opening Night Live预计全球数千万观看。
+        大量新作首发预告、平台政策更新和行业趋势信号将在两周内集中释放。
+      </div>
+      <a class="dcard-link" href="#event-3">查看完整分析 →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== 事件目录 ====== -->
+<div class="section" id="catalog">
+  <h2>📑 本期事件目录</h2>
+  <div class="event-list">
+    <a class="event-row" href="#event-1">
+      <span class="event-num">P0</span>
+      <span class="event-title">EA完成$550亿私有化：PIF+Silver Lake+Affinity Partners收购，纳斯达克退市</span>
+      <span class="tag p0">P0快讯</span>
+    </a>
+    <a class="event-row" href="#event-2">
+      <span class="event-num">01</span>
+      <span class="event-title">Take-Two FY2027 Q1财报：$13.9亿净预订额超预期，GTA6确认11月19日发售</span>
+      <span class="tag green">重点深拆</span>
+    </a>
+    <a class="event-row" href="#event-3">
+      <span class="event-num">02</span>
+      <span class="event-title">gamescom 2026前瞻：展会8月26-30日，展区首次售罄，ONL预计全球直播</span>
+      <span class="tag orange">预告雷达</span>
+    </a>
+    <a class="event-row" href="#event-4">
+      <span class="event-num">03</span>
+      <span class="event-title">中国游戏出海H1 2026：海外收入$123.72亿，腾讯网易米哈游全球营收前三</span>
+      <span class="tag blue">短事件卡</span>
+    </a>
+    <a class="event-row" href="#event-5">
+      <span class="event-num">04</span>
+      <span class="event-title">FF14 Switch 2版正式上线：MMO巨头登陆任天堂，Switch 2生态持续扩张</span>
+      <span class="tag blue">短事件卡</span>
+    </a>
+    <a class="event-row" href="#event-6">
+      <span class="event-num">05</span>
+      <span class="event-title">Xbox Game Pass八月阵容公布：Gears of War: E-Day公测领衔</span>
+      <span class="tag blue">短事件卡</span>
+    </a>
+    <a class="event-row" href="#radar">
+      <span class="event-num">📡</span>
+      <span class="event-title">全球主机出货量2026年预计下滑19.5%：Switch 2独撑，PS5/Xbox承压</span>
+      <span class="tag gray">雷达候选</span>
+    </a>
+  </div>
+</div>
+
+<!-- ====== EVENT 1: EA私有化 P0 ====== -->
+<div class="section" id="event-1">
+  <span class="tag p0 pulse" style="margin-bottom:8px;">P0 快讯 · 事件仍在发展</span>
+  <div class="dd-header">
+    <div class="dd-title-block">
+      <div class="dd-title">🏢 Electronic Arts · $550亿私有化交易完成</div>
+      <div class="dd-subtitle">Event ID: EA-PRIVATIZATION-20260804 · Confidence: confirmed · Evidence: clear_signal</div>
+    </div>
+  </div>
+
+  <div class="dd-takeaway">
+    🎯 Key Takeaway：全球第三大游戏发行商EA完成$550亿私有化，归入沙特PIF领导的财团。这是游戏行业史上第二大并购，重塑全球发行商势力格局。EA旗下IP矩阵（EA SPORTS FC、Apex Legends、The Sims、Battlefield、Madden NFL等）的所有权、战略方向与平台关系进入新阶段。对所有与EA有授权合作、IP联动或平台合作的发行团队来说，这是需要密切追踪的战略级变化。
+  </div>
+
+  <h4>为什么现在看</h4>
+  <p>8月4日正式交割，EA于纳斯达克退市。这是<strong>2026年8月全球游戏行业最大的结构性事件</strong>，直接影响：</p>
+  <ul>
+    <li>EA旗下所有IP的未来发行策略可能调整</li>
+    <li>PIF的战略诉求（体育+娱乐生态）可能推动EA加速体育游戏和电竞投入</li>
+    <li>私有化后的财务不透明可能增加合作伙伴的尽职调查成本</li>
+    <li>游戏行业"私有化潮"是否加速的信号事件</li>
+  </ul>
+
+  <h4>产品与事件坐标</h4>
+  <div class="info-grid">
+    <div class="info-block">
+      <h5>交易信息</h5>
+      <div class="kv"><span class="kv-key">收购方</span><span class="kv-val">PIF（沙特公共投资基金）+ Silver Lake + Affinity Partners</span></div>
+      <div class="kv"><span class="kv-key">交易金额</span><span class="kv-val">$550亿（约¥3,721亿）</span></div>
+      <div class="kv"><span class="kv-key">每股价格</span><span class="kv-val">$210 现金</span></div>
+      <div class="kv"><span class="kv-key">交割日期</span><span class="kv-val">2026年8月4日</span></div>
+      <div class="kv"><span class="kv-key">上市状态</span><span class="kv-val">已从纳斯达克退市，转为私人公司</span></div>
+    </div>
+    <div class="info-block">
+      <h5>EA业务规模</h5>
+      <div class="kv"><span class="kv-key">FY2026净收入</span><span class="kv-val">约$75亿 (GAAP)</span></div>
+      <div class="kv"><span class="kv-key">核心IP</span><span class="kv-val">EA SPORTS FC, Apex Legends, The Sims, Battlefield, Madden NFL, Need for Speed</span></div>
+      <div class="kv"><span class="kv-key">业务模式</span><span class="kv-val">Premium + Live Service 混合</span></div>
+      <div class="kv"><span class="kv-key">主要市场</span><span class="kv-val">北美、欧洲、全球（confirmed）</span></div>
+    </div>
+  </div>
+
+  <h4>时间线 / 事件链</h4>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px;">
+    <tr style="background:#F8FAFC;"><td style="padding:6px 10px;border:1px solid var(--line);">2025年9月29日</td><td style="padding:6px 10px;border:1px solid var(--line);">PIF财团宣布拟收购EA</td></tr>
+    <tr><td style="padding:6px 10px;border:1px solid var(--line);">2025年12月22日</td><td style="padding:6px 10px;border:1px solid var(--line);">EA股东特别会议批准交易</td></tr>
+    <tr style="background:#F8FAFC;"><td style="padding:6px 10px;border:1px solid var(--line);">2026年7月23-31日</td><td style="padding:6px 10px;border:1px solid var(--line);">EU批准 + CFIUS批准，所有监管审批完成</td></tr>
+    <tr style="background:var(--risk-soft);"><td style="padding:6px 10px;border:1px solid var(--line);font-weight:700;">2026年8月4日</td><td style="padding:6px 10px;border:1px solid var(--line);font-weight:700;">✅ 交易正式完成，EA退市 ← 本期节点</td></tr>
+    <tr style="background:#F8FAFC;"><td style="padding:6px 10px;border:1px solid var(--line);">待观察</td><td style="padding:6px 10px;border:1px solid var(--line);">新董事会构成、管理层变动、战略调整公告</td></tr>
+  </table>
+
+  <h4>关键证据</h4>
+  <div class="evidence-box">
+    <h5>官方来源</h5>
+    <ul>
+      <li>EA官方新闻稿（2026-08-04）：确认交易完成，$210/股现金，纳斯达克退市 <br><span style="color:var(--muted);font-size:11px;">来源: ea.com/news/ea-announces-completion-of-acquisition</span></li>
+      <li>SEC Form 8-K（2026-07-30）：确认所有监管审批完成，预计8月4日交割 <br><span style="color:var(--muted);font-size:11px;">来源: SEC Filing</span></li>
+    </ul>
+  </div>
+  <div class="evidence-box">
+    <h5>媒体报道</h5>
+    <ul>
+      <li>CNBC: "Saudi-led consortium completes $55 billion takeover of Electronic Arts" (2026-08-05)</li>
+      <li>The National News: "Saudi PIF completes $55bn Electronic Arts takeover in gaming push" (2026-08-05)</li>
+      <li>PlayStation Universe: "Acquisition Of Electronic Arts By Saudi Arabia, Silver Lake & Affinity Partners Is Now Complete" (2026-08-05)</li>
+    </ul>
+  </div>
+
+  <h4>六维价值判断</h4>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;">
+    <tr style="background:#F8FAFC;"><td style="padding:4px 10px;border:1px solid var(--line);font-weight:600;width:120px;">影响对象</td><td style="padding:4px 10px;border:1px solid var(--line);">全球游戏发行格局，所有与EA有授权/合作/竞品关系的厂商。直接影响EA旗下IP的发行策略和平台关系。</td></tr>
+    <tr><td style="padding:4px 10px;border:1px solid var(--line);font-weight:600;">影响链路</td><td style="padding:4px 10px;border:1px solid var(--line);">版权合作、IP授权、体育游戏赛道竞争、电竞生态、EA Origin/EA App平台策略</td></tr>
+    <tr style="background:#F8FAFC;"><td style="padding:4px 10px;border:1px solid var(--line);font-weight:600;">变化深度</td><td style="padding:4px 10px;border:1px solid var(--line);">结构性变化——实际控制权转移，从上市公司变为主权基金控股的私人公司</td></tr>
+    <tr><td style="padding:4px 10px;border:1px solid var(--line);font-weight:600;">时间紧迫性</td><td style="padding:4px 10px;border:1px solid var(--line);">高——交易已交割，下一阶段战略变化随时可能公告</td></tr>
+    <tr style="background:#F8FAFC;"><td style="padding:4px 10px;border:1px solid var(--line);font-weight:600;">持续与扩散</td><td style="padding:4px 10px;border:1px solid var(--line);">长期持续事件——未来数月将有管理层调整、战略更新、IP合作重谈等后续信号</td></tr>
+    <tr><td style="padding:4px 10px;border:1px solid var(--line);font-weight:600;">证据确定度</td><td style="padding:4px 10px;border:1px solid var(--line);">clear_signal——官方公告+SEC文件+多方媒体报道，事实确认</td></tr>
+  </table>
+
+  <h4>发行参考</h4>
+  <div class="insight-box">
+    <h5>💡 对海外发行团队的意义</h5>
+    <ul style="margin:4px 0;font-size:13px;">
+      <li><strong>授权与联动风险</strong>：EA旗下IP（尤其EA SPORTS FC的联赛/球员授权、Apex Legends的联动合作）在新所有权下可能重新谈判条款</li>
+      <li><strong>体育游戏赛道</strong>：PIF已有体育产业布局（足球、高尔夫、F1等），EA SPORTS FC可能成为PIF体育生态的核心游戏化节点</li>
+      <li><strong>中东市场加速</strong>：PIF入主后，EA在中东/北非市场的本地化、发行力度可能显著加强</li>
+      <li><strong>竞品窗口</strong>：所有权过渡期的战略不确定性，是竞品（如Take-Two的体育游戏、其他大逃杀/射击游戏）的潜在窗口</li>
+    </ul>
+  </div>
+
+  <div class="insight-box">
+    <h5>⚠️ 不可照搬条件</h5>
+    <ul style="margin:4px 0;font-size:13px;">
+      <li>$550亿的交易规模不可复制——这是主权基金级别的战略投资，非普通企业并购</li>
+      <li>PIF的战略目标（国家经济多元化）与商业游戏公司的纯市场逻辑不同——EA的未来决策可能带有非纯商业因素</li>
+      <li>私有化后的财务不透明意味着外部无法直接对标EA的运营数据</li>
+    </ul>
+  </div>
+
+  <h4>下一监测节点</h4>
+  <ul style="font-size:13px;">
+    <li>新董事会成员及管理层变动公告 → <strong>预期30天内</strong></li>
+    <li>EA首次私有化后战略更新或投资者沟通 → <strong>预期60天内</strong></li>
+    <li>EA SPORTS FC 27 发行计划是否有变化 → <strong>9月-10月关注</strong></li>
+    <li>Apex Legends / The Sims / Battlefield 等Live Service游戏运营是否有策略调整 → <strong>持续监测</strong></li>
+  </ul>
+
+  <details style="margin-top:12px;">
+    <summary style="cursor:pointer;color:var(--muted);font-size:12px;">未知项与来源</summary>
+    <div style="font-size:12px;color:var(--muted);padding:8px;margin-top:4px;">
+      <p><strong>当前未确认：</strong></p>
+      <ul>
+        <li>新董事会具体成员名单 → unknown</li>
+        <li>EA CEO Andrew Wilson是否留任 → 官方公告未提及变动，但长期未知</li>
+        <li>PIF是否推动EA加速中东市场投入 → 推断（基于PIF战略诉求），待验证</li>
+        <li>其他EA IP授权合作伙伴的态度变化 → unknown</li>
+      </ul>
+      <p><strong>主要来源：</strong>EA官方新闻稿、SEC Form 8-K、CNBC、The National News、PlayStation Universe</p>
+    </div>
+  </details>
+</div>
+
+<!-- ====== EVENT 2: Take-Two Q1 + GTA6 ====== -->
+<div class="section" id="event-2">
+  <span class="tag green" style="margin-bottom:8px;">重点深拆</span>
+  <div class="dd-header">
+    <div class="dd-title-block">
+      <div class="dd-title">🎮 Take-Two Interactive · Q1 FY2027超预期，GTA6锁定11月19日</div>
+      <div class="dd-subtitle">Event ID: T2-Q1FY2027-20260807 · Confidence: confirmed · Evidence: clear_signal</div>
+    </div>
+  </div>
+
+  <div class="dd-takeaway">
+    🎯 Key Takeaway：Take-Two Q1净预订额$13.9亿，超公司指引；重申FY2027全年$80-82亿目标。GTA6确认2026年11月19日发售，GTA5全球销量突破2.3亿份。对全球发行团队而言，GTA6的发售窗口将对2026 Q4全球游戏市场形成历史级的分流效应——同期所有新游上线、内容更新、促销活动都将面临玩家注意力与消费预算的强力竞争。
+  </div>
+
+  <h4>为什么现在看</h4>
+  <p>8月7日Take-Two投资者电话会释放了多个关键信号：</p>
+  <ul>
+    <li><strong>GTA6发售时间窗口确认</strong>：11月19日，对Q4全球发行排期有直接参考价值</li>
+    <li><strong>FY2027全年$80-82亿净预订额指引</strong>：意味着Take-Two预期GTA6将带来单年度历史级收入</li>
+    <li><strong>GTA5长尾数据</strong>：全球销量突破2.3亿份，微交易收入增长3%，证明GTA IP的超长生命周期</li>
+    <li><strong>股价承压但基本面强劲</strong>：市场对高预期的消化过程，不代表业务风险</li>
+  </ul>
+
+  <h4>产品与事件坐标</h4>
+  <div class="info-grid">
+    <div class="info-block">
+      <h5>公司信息</h5>
+      <div class="kv"><span class="kv-key">公司名</span><span class="kv-val">Take-Two Interactive (NASDAQ: TTWO)</span></div>
+      <div class="kv"><span class="kv-key">关键子公司</span><span class="kv-val">Rockstar Games, 2K Games, Zynga</span></div>
+      <div class="kv"><span class="kv-key">业务模式</span><span class="kv-val">Premium + Live Service + Mobile（Zynga）</span></div>
+      <div class="kv"><span class="kv-key">主要市场</span><span class="kv-val">全球（confirmed），北美/欧洲为核心</span></div>
+    </div>
+    <div class="info-block">
+      <h5>财报亮点</h5>
+      <div class="kv"><span class="kv-key">Q1净预订额</span><span class="kv-val">$13.9亿（超公司预期）</span></div>
+      <div class="kv"><span class="kv-key">FY2027指引</span><span class="kv-val">$80-82亿净预订额</span></div>
+      <div class="kv"><span class="kv-key">GTA5累计销量</span><span class="kv-val">&gt;2.3亿份（全球第二）</span></div>
+      <div class="kv"><span class="kv-key">GTA6发售日</span><span class="kv-val">2026年11月19日（confirmed）</span></div>
+    </div>
+  </div>
+
+  <h4>完整事件链</h4>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px;">
+    <tr style="background:#F8FAFC;"><td style="padding:6px 10px;border:1px solid var(--line);">2023年12月</td><td style="padding:6px 10px;border:1px solid var(--line);">GTA6首支预告发布（YouTube播放量破纪录）</td></tr>
+    <tr><td style="padding:6px 10px;border:1px solid var(--line);">2025年5月</td><td style="padding:6px 10px;border:1px solid var(--line);">Take-Two确认GTA6将于Fall 2025发售</td></tr>
+    <tr style="background:#F8FAFC;"><td style="padding:6px 10px;border:1px solid var(--line);">2025年11月</td><td style="padding:6px 10px;border:1px solid var(--line);">GTA6宣布延期至2026年</td></tr>
+    <tr><td style="padding:6px 10px;border:1px solid var(--line);">2026年5月</td><td style="padding:6px 10px;border:1px solid var(--line);">Take-Two确认GTA6 2026年11月19日发售</td></tr>
+    <tr style="background:var(--action-soft);"><td style="padding:6px 10px;border:1px solid var(--line);font-weight:700;">2026年8月7日</td><td style="padding:6px 10px;border:1px solid var(--line);font-weight:700;">✅ Q1 FY2027财报确认发售计划不变，全年指引$80-82亿 ← 本期节点</td></tr>
+    <tr style="background:#F8FAFC;"><td style="padding:6px 10px;border:1px solid var(--line);">2026年11月19日</td><td style="padding:6px 10px;border:1px solid var(--line);">🔮 GTA6正式发售</td></tr>
+  </table>
+
+  <h4>发行参考：GTA6对Q4全球发行排期的分流效应</h4>
+  <div class="insight-box">
+    <h5>💡 发行窗口警示</h5>
+    <ul style="margin:4px 0;font-size:13px;">
+      <li><strong>同期上线风险</strong>：11月19日前后2-3周内任何新游上线都将面临GTA6对玩家注意力与消费预算的虹吸效应。参照GTA5首发——首日销售额$8亿，3天$10亿</li>
+      <li><strong>Live Service产品</strong>：GTA Online模式若随GTA6同步或稍后上线，将持续吸附玩家时间和付费——其他Live Service游戏的DAU/ARPDAU可能在Q4出现波动</li>
+      <li><strong>营销声量挤压</strong>：GTA6的发售营销将主导11月全球游戏媒体和社交流量——同期Campaign的声量获取成本将显著上升</li>
+      <li><strong>参考先例</strong>：2025年GTA5 Enhanced版在无新内容情况下仍拉动Take-Two收入增长，证明该IP的消费号召力不限于新品</li>
+    </ul>
+  </div>
+
+  <div class="insight-box">
+    <h5>⚠️ 适用条件与不可照搬</h5>
+    <ul style="margin:4px 0;font-size:13px;">
+      <li>GTA级别的IP效应不可复制——大多数产品不必因GTA6发售而全面调整排期</li>
+      <li>品类差异化产品（如二次元、休闲、策略类）受GTA6分流影响较射击/开放世界品类小</li>
+      <li>移动端受GTA6影响相对有限——GTA6首发为主机/PC</li>
+    </ul>
+  </div>
+
+  <h4>下一监测节点</h4>
+  <ul style="font-size:13px;">
+    <li>GTA6第二支预告或实机演示 → <strong>预计9-10月</strong></li>
+    <li>GTA6预售/预购开启日期 → <strong>关注Rockstar官方</strong></li>
+    <li>GTA6定价策略（$70标准还是更高） → <strong>对行业定价有标杆效应</strong></li>
+    <li>Take-Two Q2 FY2027财报（10-11月） → <strong>GTA6发售前最后一次财报更新</strong></li>
+  </ul>
+
+  <details style="margin-top:12px;">
+    <summary style="cursor:pointer;color:var(--muted);font-size:12px;">未知项与来源</summary>
+    <div style="font-size:12px;color:var(--muted);padding:8px;margin-top:4px;">
+      <p><strong>当前未确认：</strong></p>
+      <ul>
+        <li>GTA6定价 → unknown（行业推测$70-80）</li>
+        <li>GTA6是否首发同步PC → partially_confirmed（Rockstar传统为主机首发，PC延后）</li>
+        <li>GTA Online 2.0与GTA6的捆绑方式 → unknown</li>
+      </ul>
+      <p><strong>主要来源：</strong>Take-Two IR官网 Q1 FY2027 Earnings Release & Conference Call、VGC、游侠网、IT之家</p>
+    </div>
+  </details>
+</div>
+
+<!-- ====== EVENT 3: gamescom 2026 ====== -->
+<div class="section" id="event-3">
+  <span class="tag orange" style="margin-bottom:8px;">预告雷达 · 两周后</span>
+  <div class="dd-header">
+    <div class="dd-title-block">
+      <div class="dd-title">🎪 gamescom 2026 前瞻：全球最大游戏展倒计时</div>
+      <div class="dd-subtitle">Event ID: GAMESCOM-2026-PREVIEW · Confidence: confirmed · Evidence: clear_signal</div>
+    </div>
+  </div>
+
+  <div class="dd-takeaway" style="background:var(--watch-soft);border-left-color:var(--watch);color:var(--watch-dark);">
+    🎯 Key Takeaway：gamescom 2026（8月26-30日，科隆）展区首次100%售罄，Opening Night Live将于8月25日晚全球直播。这是2026年H2最重要的行业声量节点之一，预计将有大量新作首发预告、平台政策更新和行业趋势信号集中释放。对发行团队而言，这是获取竞品情报、评估市场热度和校准H2传播节奏的关键窗口。
+  </div>
+
+  <h4>已确认信息</h4>
+  <ul>
+    <li><strong>时间</strong>：8月26-30日（8/26媒体与行业日，8/27起公众开放）</li>
+    <li><strong>地点</strong>：德国科隆 Koelnmesse</li>
+    <li><strong>Opening Night Live</strong>：8月25日晚，Geoff Keighley & sjokz主持</li>
+    <li><strong>devcom</strong>：8月24日开发者大会开幕</li>
+    <li><strong>展区状态</strong>：首次实现全面预订（100%售罄）</li>
+    <li><strong>主题</strong>："游戏点燃未来激情" (Games Ignite Future Passion)</li>
+    <li><strong>参考数据</strong>：2025年ONL全球直播观看量超7200万，YoY增长80%</li>
+  </ul>
+
+  <h4>需要关注的发行信号</h4>
+  <ul style="font-size:13px;">
+    <li>新作首发：ONL是仅次于TGA的全球游戏首发舞台，多款AAA/独立游戏将首次公开</li>
+    <li>平台策略：Xbox、PlayStation的gamescom发布会可能涉及Game Pass策略、云游戏、跨平台政策更新</li>
+    <li>中国厂商参展情况：腾讯Level Infinite、网易等通常有gamescom展位或周边活动</li>
+    <li>韩国厂商动态：Nexon、Krafton等是否在gamescom有重点宣发</li>
+    <li>行业趋势：AI在游戏开发中的应用展示、云游戏最新进展</li>
+  </ul>
+
+  <h4>发行参考</h4>
+  <div class="insight-box">
+    <h5>💡 建议动作</h5>
+    <ul style="margin:4px 0;font-size:13px;">
+      <li>安排团队成员观看ONL直播（北京时间8月26日凌晨2:00左右）</li>
+      <li>关注竞品在gamescom期间的宣发节奏和用户反馈</li>
+      <li>留意展会期间Steam/Epic等平台的同步促销或新品节活动</li>
+      <li>gamescom后48小时内是做竞品动作复盘的最佳窗口</li>
+    </ul>
+  </div>
+
+  <h4>下一监测节点</h4>
+  <ul style="font-size:13px;">
+    <li>ONL最终参演阵容公布 → <strong>预计8月18-22日</strong></li>
+    <li>Opening Night Live → <strong>8月25日晚（北京时间8月26日凌晨）</strong></li>
+    <li>gamescom展会期间每日重点新闻汇总 → <strong>8月26-30日每日跟踪</strong></li>
+    <li>展会结束后一周内行业复盘与趋势总结 → <strong>9月第一周</strong></li>
+  </ul>
+</div>
+
+<!-- ====== 短事件卡 ====== -->
+<div class="section" id="shortcards">
+  <h2>📋 本期短事件卡</h2>
+
+  <div class="short-card" id="event-4">
+    <div class="sc-title"><span class="tag blue">短事件卡</span> 🇨🇳 中国游戏出海H1 2026：海外收入$123.72亿，同比增长</div>
+    <p style="font-size:13px;margin:6px 0;">
+      <strong>发生了什么：</strong>《2026年1-6月中国游戏产业报告》显示，上半年中国自研游戏海外市场实际销售收入达$123.72亿（约¥897亿）。腾讯、网易、米哈游稳固占据全球游戏营收前十。亚马逊广告服务出海游戏客户数同比增长近90%。
+    </p>
+    <p style="font-size:13px;margin:4px 0;"><strong>为什么看：</strong>中国游戏出海已从"产品输出"升级为"技术+文化输出"，全球市占率超40%。出海收入持续增长对全球发行竞争格局有直接影响——中国厂商在移动端的统治力正向PC/主机延伸。</p>
+    <p style="font-size:13px;margin:4px 0;"><strong>证据状态：</strong>clear_signal（中国音数协游戏工委官方报告）</p>
+    <p style="font-size:13px;margin:4px 0;"><strong>下一节点：</strong>2026年全年出海数据（预计2027年1月发布）</p>
+  </div>
+
+  <div class="short-card" id="event-5">
+    <div class="sc-title"><span class="tag blue">短事件卡</span> 🎮 FF14 Switch 2版正式上线：MMO巨舰驶入任天堂港口</div>
+    <p style="font-size:13px;margin:6px 0;">
+      <strong>发生了什么：</strong>运营十余年、拥有数千万玩家的MMORPG《最终幻想14》于8月4日正式登陆Switch 2平台。这是FF14首次登陆任天堂硬件。
+    </p>
+    <p style="font-size:13px;margin:4px 0;"><strong>为什么看：</strong>Switch 2正快速构建第三方大作阵容（FF14 + Elden Ring等），平台生态扩张对发行策略有直接影响。MMORPG在掌机/混合平台的体验验证，对其他Live Service游戏的平台策略有参考价值。</p>
+    <p style="font-size:13px;margin:4px 0;"><strong>证据状态：</strong>clear_signal（Square Enix官方 + 任天堂eShop确认）</p>
+    <p style="font-size:13px;margin:4px 0;"><strong>下一节点：</strong>Switch 2版FF14首月玩家数据（预计9月）</p>
+  </div>
+
+  <div class="short-card" id="event-6">
+    <div class="sc-title"><span class="tag blue">短事件卡</span> 🎮 Xbox Game Pass八月阵容：Gears of War: E-Day公测领衔</div>
+    <p style="font-size:13px;margin:6px 0;">
+      <strong>发生了什么：</strong>Xbox Game Pass八月上半月新增游戏公布，包括《轮回之兽》(8/4)、《沙金工业》(8/13)以及《战争机器：事变日》公开测试。GeForce NOW同步在8月新增26款游戏。
+    </p>
+    <p style="font-size:13px;margin:4px 0;"><strong>为什么看：</strong>Gears of War: E-Day是微软2026年最重要的第一方作品之一，公测规模和数据将直接影响Xbox Game Pass的H2订阅增长预期。订阅制+云游戏的内容供给节奏对行业分发模式有持续影响。</p>
+    <p style="font-size:13px;margin:4px 0;"><strong>证据状态：</strong>clear_signal（Xbox官方公告 + NVIDIA GeForce NOW官方）</p>
+    <p style="font-size:13px;margin:4px 0;"><strong>下一节点：</strong>Gears of War: E-Day公测用户数据与反馈（关注社交媒体和SteamDB）</p>
+  </div>
+</div>
+
+<!-- ====== 监测雷达 ====== -->
+<div class="section" id="radar">
+  <h2>📡 持续监测雷达</h2>
+
+  <div class="short-card">
+    <div class="sc-title"><span class="tag gray">雷达候选</span> 📉 全球主机出货量2026年预计下滑19.5%</div>
+    <p style="font-size:13px;margin:6px 0;">
+      <strong>信号：</strong>市场研究显示2026年索尼、任天堂、微软三家主机总出货量预计同比下降19.5%，仅3390万台。Switch 2独撑增长，PS5/Xbox Series销量创多年新低。2026-2030年预计恢复至CAGR 8.0%。
+    </p>
+    <p style="font-size:13px;margin:4px 0;"><strong>证据状态：</strong>limited_signal（行业报告推断，非厂商官方数据）</p>
+    <p style="font-size:13px;margin:4px 0;"><strong>需监测：</strong>各厂商官方出货数据（季度财报）、新一代主机（PS6/Xbox Next）发布计划、PC/移动端对主机市场的持续分流趋势</p>
+  </div>
+
+  <div class="short-card">
+    <div class="sc-title"><span class="tag gray">雷达候选</span> ⚔️ TGS 2026韩国厂商大规模参展</div>
+    <p style="font-size:13px;margin:6px 0;">
+      <strong>信号：</strong>东京电玩展2026参展商名单显示，NC（Astrae Oratio）、Nexon等韩国大厂将大规模参展。Nexon已获得暴雪《星际争霸》IP开发权，可能借TGS展示新作进度。
+    </p>
+    <p style="font-size:13px;margin:4px 0;"><strong>证据状态：</strong>to_verify（展会参展名单确认，但具体展示内容待公布）</p>
+    <p style="font-size:13px;margin:4px 0;"><strong>时间节点：</strong>TGS 2026预计9月举行</p>
+  </div>
+</div>
+
+<!-- ====== Calendar V2 ====== -->
+<div class="section" id="calendar">
+  <h2>📅 发行关键日历</h2>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:12px;">所有已确认、重点关注与待验证节点统一落在一个日历中；优先级直接通过视觉层级区分，不再重复使用下方日期表。</p>
+  <div class="calendar-shell">
+    <div class="calendar-toolbar">
+      <div><div class="month-title">2026 · AUGUST</div><div class="month-sub">当前月 · 重点观察 gamescom / Call of Duty NEXT / 财报与重大产品节点</div></div>
+      <div class="calendar-legend"><span class="legend-item"><span class="legend-dot p0"></span>P0 / 战略级</span><span class="legend-item"><span class="legend-dot high"></span>重点</span><span class="legend-item"><span class="legend-dot normal"></span>关注</span><span class="legend-item"><span class="legend-dot watch"></span>监测</span><span class="legend-item"><span class="legend-outline"></span>预计 / 未确认</span></div>
+    </div>
+    <div class="calendar-weekdays"><div>周日</div><div>周一</div><div>周二</div><div>周三</div><div>周四</div><div>周五</div><div>周六</div></div>
+    <div class="calendar-grid-v2">
+      <div class="calendar-day-v2 outside"><div class="calendar-date">26</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">27</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">28</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">29</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">30</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">31</div></div><div class="calendar-day-v2"><div class="calendar-date">1</div></div>
+      <div class="calendar-day-v2"><div class="calendar-date">2</div></div><div class="calendar-day-v2"><div class="calendar-date">3</div></div>
+      <div class="calendar-day-v2"><div class="calendar-date">4</div><a class="cal-event p0" href="#event-1"><span class="title">EA 私有化交割</span><span class="meta">战略级 · 公司结构</span></a><a class="cal-event normal" href="#event-5"><span class="title">FF14 · Switch 2</span><span class="meta">产品上线</span></a></div>
+      <div class="calendar-day-v2"><div class="calendar-date">5</div></div><div class="calendar-day-v2"><div class="calendar-date">6</div></div><div class="calendar-day-v2"><div class="calendar-date">7</div></div>
+      <div class="calendar-day-v2"><div class="calendar-date">8</div><a class="cal-event high" href="#event-2"><span class="title">Take-Two Q1</span><span class="meta">财报 · GTA6</span></a></div>
+      <div class="calendar-day-v2"><div class="calendar-date">9</div></div><div class="calendar-day-v2"><div class="calendar-date">10</div></div><div class="calendar-day-v2"><div class="calendar-date">11</div></div><div class="calendar-day-v2 today"><div class="calendar-date">12</div></div>
+      <div class="calendar-day-v2"><div class="calendar-date">13</div><a class="cal-event normal" href="#event-6"><span class="title">Game Pass 新增</span><span class="meta">内容分发</span></a></div><div class="calendar-day-v2"><div class="calendar-date">14</div></div><div class="calendar-day-v2"><div class="calendar-date">15</div></div>
+      <div class="calendar-day-v2"><div class="calendar-date">16</div></div><div class="calendar-day-v2"><div class="calendar-date">17</div></div><div class="calendar-day-v2"><div class="calendar-date">18</div><div class="cal-event watch estimated"><span class="title">ONL 阵容窗口</span><span class="meta">预计 8/18–22</span></div></div><div class="calendar-day-v2"><div class="calendar-date">19</div></div><div class="calendar-day-v2"><div class="calendar-date">20</div></div>
+      <div class="calendar-day-v2"><div class="calendar-date">21</div><div class="cal-event p0"><span class="title">Call of Duty NEXT</span><span class="meta">重点发布节点</span></div></div><div class="calendar-day-v2"><div class="calendar-date">22</div></div>
+      <div class="calendar-day-v2"><div class="calendar-date">23</div></div><div class="calendar-day-v2"><div class="calendar-date">24</div><a class="cal-event high" href="#event-3"><span class="title">devcom 开幕</span><span class="meta">行业 / 开发者</span></a></div><div class="calendar-day-v2"><div class="calendar-date">25</div><a class="cal-event p0" href="#event-3"><span class="time">全球直播</span><span class="title">Opening Night Live</span><span class="meta">gamescom · 战略声量</span></a></div><div class="calendar-day-v2"><div class="calendar-date">26</div><a class="cal-event high" href="#event-3"><span class="title">gamescom Day 1</span><span class="meta">展会 · 发布密集期</span></a></div><div class="calendar-day-v2"><div class="calendar-date">27</div><a class="cal-event high" href="#event-3"><span class="title">gamescom</span><span class="meta">展中追踪</span></a></div><div class="calendar-day-v2"><div class="calendar-date">28</div><a class="cal-event high" href="#event-3"><span class="title">gamescom</span><span class="meta">展中追踪</span></a></div><div class="calendar-day-v2"><div class="calendar-date">29</div><a class="cal-event high" href="#event-3"><span class="title">gamescom</span><span class="meta">展中追踪</span></a></div>
+      <div class="calendar-day-v2"><div class="calendar-date">30</div><a class="cal-event high" href="#event-3"><span class="title">gamescom 收官</span><span class="meta">展后复盘起点</span></a></div><div class="calendar-day-v2"><div class="calendar-date">31</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">1</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">2</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">3</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">4</div></div><div class="calendar-day-v2 outside"><div class="calendar-date">5</div></div>
+    </div>
+    <div class="calendar-span-note"><span class="range-chip"><strong>8/18–22</strong> ONL 最终阵容预计窗口</span><span class="range-chip"><strong>8/26–30</strong> gamescom 高密度监测期</span></div>
+  </div>
+  <div class="calendar-next-month"><h4>未来 30–90 天 · 跨月关键节点</h4><div class="future-strip">
+    <div class="future-node watch"><div class="date">9月 · 待确认</div><div class="name">TGS 2026</div><div class="note">日期确认前保持监测，不写成确定日程</div></div>
+    <div class="future-node p0"><div class="date">9–10月 · 预计</div><div class="name">GTA6 新预告 / 实机</div><div class="note">高优先级预告信号，等待 Rockstar 官方确认</div></div>
+    <div class="future-node high"><div class="date">10–11月 · 预计</div><div class="name">Take-Two Q2 FY2027</div><div class="note">GTA6 发售前最后阶段性财务节点</div></div>
+    <div class="future-node p0"><div class="date">11月19日 · 已确认</div><div class="name">GTA6 正式发售</div><div class="note">Q4 全球发行排期关键冲突节点</div></div>
+  </div></div>
+</div>
+
+<!-- ====== 来源与运行记录 ====== -->
+<div class="section" id="sources">
+  <h2>📚 来源与运行记录</h2>
+
+  <h4>主要来源</h4>
+  <table style="width:100%;border-collapse:collapse;font-size:12px;">
+    <tr style="background:#F8FAFC;font-weight:600;">
+      <td style="padding:6px 10px;border:1px solid var(--line);">来源</td>
+      <td style="padding:6px 10px;border:1px solid var(--line);">类型</td>
+      <td style="padding:6px 10px;border:1px solid var(--line);">覆盖</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">EA官方新闻稿 (ea.com/news)</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">官方一手</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">EA收购交割详情</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+      <td style="padding:4px 10px;border:1px solid var(--line);">SEC Form 8-K</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">监管文件</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">EA交易审批进度</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">Take-Two IR (ir.take2games.com)</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">官方一手</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">Q1 FY2027财报</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+      <td style="padding:4px 10px;border:1px solid var(--line);">gamescom.global</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">官方</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">展会日程与展区状态</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">CNBC / The National News</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">主流财经媒体</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">EA收购报道、市场影响</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+      <td style="padding:4px 10px;border:1px solid var(--line);">中国音数协游戏工委</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">行业官方</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">H1 2026游戏产业报告</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">IT之家 / VGC / 游民星空 / GameWatcher</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">游戏媒体</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">多方交叉验证</td>
+    </tr>
+  </table>
+
+  <h4 style="margin-top:16px;">运行记录</h4>
+  <table style="width:100%;border-collapse:collapse;font-size:12px;">
+    <tr style="background:#F8FAFC;font-weight:600;">
+      <td style="padding:6px 10px;border:1px solid var(--line);width:160px;">项目</td>
+      <td style="padding:6px 10px;border:1px solid var(--line);">值</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">Skill版本</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">game-intelligence-skill V0.1.1</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+      <td style="padding:4px 10px;border:1px solid var(--line);">扫描窗口</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">2026-08-05 ~ 2026-08-12（7天）</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">扫描范围</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">全球全行业（PC/主机/移动/电竞/政策/平台）</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+      <td style="padding:4px 10px;border:1px solid var(--line);">数据源调用</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">Web Search × 12次 + Web Fetch × 2次</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">候选事件</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">7个</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+      <td style="padding:4px 10px;border:1px solid var(--line);">内容路由</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">P0快讯×1 + 重点深拆×1 + 预告雷达×1 + 短事件卡×3 + 雷达候选×2</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">QA Gate</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">✅ 通过（所有正式事件满足产品坐标+地区+链路+机制+证据边界）</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+      <td style="padding:4px 10px;border:1px solid var(--line);">生成时间</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">2026-08-12 14:50 CST</td>
+    </tr>
+    <tr>
+      <td style="padding:4px 10px;border:1px solid var(--line);">平台</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">WorkBuddy (Windows) · Agent: 大云老师</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+      <td style="padding:4px 10px;border:1px solid var(--line);">标记</td>
+      <td style="padding:4px 10px;border:1px solid var(--line);">⚠️ 人工终审待办：EA收购结论适用边界、GTA6分流效应业务判断、gamescom关注清单优先级</td>
+    </tr>
+  </table>
+</div>
+
+</div><!-- .container -->
+
+<div class="page-footer">
+  <div class="container">
+    全球游戏发行与营销情报雷达 · V0.1.1-RC1 · 自动生成于2026-08-12<br>
+    ⚠️ 本报告为自动化初步情报产出，P0结论及发行参考建议需人工终审确认后使用
+  </div>
+</div>
+
+</body>
+</html>

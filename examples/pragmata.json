@@ -1,0 +1,80 @@
+{
+  "example_role": "Golden Example｜机制与归因边界",
+  "event_id": "capcom_pragmata_demo_release_2025-12",
+  "case_title": "PRAGMATA｜用可玩Demo解释复合玩法，再以销量节点释放市场信号",
+  "core_claim": "当用户已有兴趣但仍难通过PV理解复合玩法时，Demo可承担产品教育与购买前验证；现有公开销量结果不能直接归因于Demo。",
+  "product_profile": {
+    "product_name": "PRAGMATA",
+    "developer": "Capcom",
+    "publisher": "Capcom",
+    "franchise_or_new_ip": "new_ip",
+    "genre": "action / sci-fi",
+    "product_scale_label": "头部发行商高规格买断新IP",
+    "business_model": "买断制",
+    "operation_model": "首发型",
+    "lifecycle_stage": "发售与首轮销量披露",
+    "release_status": "released",
+    "planned_markets": [
+      "多地区发行"
+    ],
+    "event_markets": [
+      "多地区"
+    ],
+    "research_covered_markets": [
+      "官方全球/区域公开资料"
+    ],
+    "feedback_markets": [],
+    "release_platforms": [
+      "PS5",
+      "Xbox Series",
+      "PC",
+      "Nintendo Switch 2（部分地区时间不同）"
+    ],
+    "platform_relationship": "部分关系公开，具体平台合作强度不统一推断",
+    "target_audience": "动作与高规格主机/PC用户",
+    "current_business_goal": "降低复杂玩法理解门槛并承接发售转化",
+    "data_availability": "有Demo/发售/销量里程碑；缺Demo漏斗与购买归因"
+  },
+  "business_problem": "用户已产生兴趣，但仅靠PV仍难快速理解“战斗+破解”的实际体验。",
+  "core_mechanism": [
+    "兴趣",
+    "玩法理解",
+    "试玩验证",
+    "商店承接",
+    "购买"
+  ],
+  "insights": [
+    {
+      "judgement": "Demo可把“看不懂玩法”转成“亲手理解玩法”。",
+      "why": "发售前开放可玩Demo，核心体验包含战斗与破解并置。",
+      "so_what": "机制复杂、视频解释成本高时，Demo可作为产品教育工具。"
+    },
+    {
+      "judgement": "销量里程碑可作为市场反馈节奏信号，但不能反推Demo独立贡献。",
+      "why": "公开有D+2与D+16销量节点，但缺Demo用户漏斗与购买差异。",
+      "so_what": "可观察阶段信号，不做单变量归因。"
+    },
+    {
+      "judgement": "Demo只是发行组合的一环。",
+      "why": "发售、平台、媒体、内容等同时存在。",
+      "so_what": "复用前先判断产品障碍是否真的是理解/信任问题。"
+    }
+  ],
+  "applicable_conditions": [
+    "用户已有兴趣但看PV仍不懂怎么玩",
+    "用户需要购买前验证手感/性能/完成度",
+    "Demo能代表正式体验且商店承接链路就绪"
+  ],
+  "non_transferable_conditions": [
+    "用户根本不知道产品，核心问题是曝光",
+    "题材/创意本身缺乏兴趣，Demo不是首解",
+    "Demo内容不代表正式版本或性能不稳"
+  ],
+  "critical_missing_evidence": [
+    "Demo下载/启动/完成",
+    "Demo后商店回访/Wishlist",
+    "Demo用户与未试玩用户购买差异"
+  ],
+  "evidence_state": "limited_signal",
+  "conclusion_update_condition": "若出现Demo用户与非Demo用户的购买或商店承接差异，可从机制参考升级到效果验证信号。"
+}

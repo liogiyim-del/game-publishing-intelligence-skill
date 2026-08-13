@@ -1,0 +1,16 @@
+version: 0.1.1
+default: full_pipeline
+early_stop_requires_explicit_user_intent: true
+regular_trigger_min_cases_is_hard_gate: false
+html_generation_rule: 至少1个正式事件即可生成HTML；无正式事件则不出刊并生成run log。
+modes:
+  full_pipeline:
+    must_output_file: true
+  discovery_only:
+    must_output_file: false
+  research_only:
+    must_output_file: false
+  analysis_only:
+    must_output_file: false
+  qa_only:
+    must_output_file: false

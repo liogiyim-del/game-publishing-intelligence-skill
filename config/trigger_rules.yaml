@@ -1,0 +1,61 @@
+version: '0.1'
+mode: user_initiated
+default_output_language: zh-CN
+regular_trigger_min_cases: 3
+regular_trigger_note: 3–5 个为常规生成门槛，不是硬上限；事件少但很重要时允许 1–2 个深拆，不凑数量。
+routes:
+  p0_flash:
+    conditions:
+    - 重大政策或平台规则
+    - 重大竞品/产品节点或官宣
+    - 重大舆情、停娱或风险，且应对窗口短
+    - Convention 重大官宣或突发事件
+    - 跨平台危机或直接改变发行/合规条件的事件
+    output: 立即生成 P0 初步快讯
+    requires_human_review: true
+  regular_report:
+    conditions:
+    - 累计 3–5 个证据完整且有发行价值的事件
+    - 或 1–2 个事件虽数量少但重要性足够高
+    output: 生成动态综合 HTML
+  high_density_report:
+    conditions:
+    - Convention 或集中发布期出现多项重要事件
+    output: 主报告可深拆 4–6 项；首页仍只展示最高优先级 5 条；其余用目录/折叠治理
+  event_update:
+    conditions:
+    - 旧事件出现官方回应
+    - 出现新数据
+    - 上线结果出现
+    - 判断被新证据修正
+    output: 只生成进展更新；正文明确“相比上次，本次新增的是……”
+  special_deep_dive:
+    conditions:
+    - 重大舆情
+    - 重大政策
+    - Convention
+    - 复杂 Campaign 达到深度门槛
+    output: 在同一综合 HTML 中加入专项折叠章节
+  short_card:
+    conditions:
+    - 有明确业务价值但暂不需要完整深拆
+    output: 发生了什么 + 为什么看 + 证据 + 下一节点
+  radar_candidate:
+    conditions:
+    - 单一信号
+    - 社区推测
+    - 证据不足但值得继续观察
+    output: 进入后台持续监测/预告雷达，不进入强结论
+  no_report:
+    conditions:
+    - 本次主动扫描没有事件达到准入标准
+    output: 不生成业务报告；生成运行记录并说明未出刊原因
+p0_fixed_label: P0 初步快讯｜事件仍在发展，后续将在动态情报报告中更新完整信息。
+p0_required_fields:
+- 已确认事实
+- 为什么现在看
+- 影响范围
+- 当前未确认
+- 下一监测节点
+- 后续更新条件
+- 来源

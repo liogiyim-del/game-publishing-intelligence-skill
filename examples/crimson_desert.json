@@ -1,0 +1,37 @@
+{
+  "example_role": "Golden Example｜风险关闭与证据边界",
+  "event_id": "pearlabyss_crimson_desert_ai_asset_crisis_2026-03",
+  "case_title": "Crimson Desert｜多轮替换证明修复持续，但公开证据仍不足以确认问题清零",
+  "core_claim": "补丁上线只能证明“在修”，不能单独证明风险事件已经关闭。",
+  "business_problem": "官方持续修补后，什么条件下才能更有依据地判断危机真正关闭。",
+  "core_mechanism": [
+    "Asset Closure",
+    "Process Closure",
+    "Trust Closure",
+    "Incident Closed"
+  ],
+  "case_specific_findings": [
+    "多轮补丁中的部分2D视觉资产替换可确认持续修复。",
+    "若始终只有“部分替换”而无总量/完成比例/剩余项，外部无法量化完成度。",
+    "资产修复、流程治理和外部可验证关闭是三个不同条件。"
+  ],
+  "crisis_response_assessment": {
+    "asset_closure": "partially_confirmed",
+    "process_closure": "unknown",
+    "trust_closure": "partially_confirmed",
+    "incident_closed": "not_confirmed"
+  },
+  "applicable_conditions_for_closure": [
+    "资产范围和替换完成可核验",
+    "流程修复方案有证据",
+    "外部可验证进度与关闭节点已披露"
+  ],
+  "critical_missing_evidence": [
+    "完整资产清单",
+    "已替换/待替换数量",
+    "最终审计结果",
+    "流程治理改造与责任链说明"
+  ],
+  "evidence_state": "limited_signal",
+  "conclusion_update_condition": "若官方发布可逐项核对的完整影响范围、替换清单、最终审计及流程修复说明，可升级为事件基本关闭。"
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Run Log",
+  "type": "object",
+  "required": [
+    "run_id",
+    "scan_period",
+    "sources_attempted",
+    "sources_succeeded",
+    "sources_failed",
+    "candidate_count",
+    "routing_count",
+    "report_generated"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "scan_period": {
+      "type": [
+        "string",
+        "object"
+      ]
+    },
+    "sources_attempted": {
+      "type": [
+        "integer",
+        "array"
+      ]
+    },
+    "sources_succeeded": {
+      "type": [
+        "integer",
+        "array"
+      ]
+    },
+    "sources_failed": {
+      "type": [
+        "integer",
+        "array"
+      ]
+    },
+    "candidate_count": {
+      "type": "integer"
+    },
+    "routing_count": {
+      "type": [
+        "integer",
+        "object"
+      ]
+    },
+    "report_generated": {
+      "type": "boolean"
+    },
+    "no_report_reason": {
+      "type": [
+        "string",
+        "array",
+        "null"
+      ]
+    },
+    "next_run": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "continued_watch": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "human_review_notes": {
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  }
+}

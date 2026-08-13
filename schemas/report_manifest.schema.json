@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Report Manifest",
+  "type": "object",
+  "required": [
+    "report_id",
+    "period",
+    "trigger_reason",
+    "included_events",
+    "module_mix",
+    "calendar_changes",
+    "source_coverage",
+    "qa_status"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "period": {
+      "type": [
+        "string",
+        "object"
+      ]
+    },
+    "trigger_reason": {
+      "type": "string"
+    },
+    "included_events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "p0_updates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "module_mix": {
+      "type": [
+        "array",
+        "object"
+      ]
+    },
+    "calendar_changes": {
+      "type": [
+        "array",
+        "object"
+      ]
+    },
+    "source_coverage": {
+      "type": [
+        "array",
+        "object"
+      ]
+    },
+    "qa_status": {
+      "type": "string"
+    },
+    "case_summaries": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "market_scope": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "folding_levels": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "case_granularity_qa": {
+      "type": [
+        "array",
+        "object",
+        "null"
+      ]
+    }
+  }
+}

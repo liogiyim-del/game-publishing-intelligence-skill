@@ -1,0 +1,50 @@
+{
+  "example_role": "Golden Example｜生命周期机制与规则/效果分离",
+  "event_id": "activision_mw4_serialized_camo_preorder_2026-07",
+  "case_title": "Modern Warfare 4｜用跨作预购任务连接旧作活跃，并叠加编号身份层竞争",
+  "core_claim": "这不是简单的预购送皮肤，而是“预购锁定 → 旧作回流 → 新作迁移”的预购期运营链路；当前规则证据完整，但尚不能证明活动带来真实活跃或预购增量。",
+  "business_problem": "用户已预购，但正式上线前存在等待空窗，如何让这段时间继续产生业务价值。",
+  "core_mechanism": [
+    "预购锁定",
+    "旧作回流",
+    "新作迁移"
+  ],
+  "secondary_path": [
+    "预购",
+    "旧作即时奖励",
+    "跨游戏任务",
+    "跨作资产",
+    "MW4上线继承"
+  ],
+  "incentive_layers": [
+    "保底奖励",
+    "稀缺编号奖励",
+    "跨作长期继承"
+  ],
+  "case_specific_findings": [
+    "同一5000 Skulls目标下不同模式单位击杀奖励不同，可能引发模式迁移。",
+    "局部模式活跃上涨不能自动解释为整体DAU增长。",
+    "前100,000编号版 + 后续普通版形成“稀缺奖励 + 保底奖励”。",
+    "Gilded Pearl Camo Pack只是完整预购价值栈中的一个组件。"
+  ],
+  "applicable_conditions": [
+    "在营旧作仍有活跃基础",
+    "新旧作账号、任务、奖励与继承链路打通",
+    "不同平台进入时间差可控",
+    "客服与发奖系统可承载"
+  ],
+  "non_transferable_conditions": [
+    "前作活跃不足",
+    "平台时间差造成明显公平争议",
+    "任务/发奖/账号系统不稳定"
+  ],
+  "critical_missing_evidence": [
+    "挑战参与规模与完成率",
+    "编号消耗速度",
+    "旧作真实新增/回流活跃",
+    "模式迁移占比",
+    "MW4上线后继承奖励使用率"
+  ],
+  "evidence_state": "limited_signal",
+  "conclusion_update_condition": "若出现真实旧作新增/回流活跃与任务参与数据，可从机制观察升级到效果验证；若只出现模式迁移，则维持当前边界。"
+}

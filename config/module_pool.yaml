@@ -1,0 +1,42 @@
+version: '0.1'
+modules:
+  M1:
+    name: 国家与地区政策、平台规则
+    prompt: prompts/policy_analysis.md
+  M2:
+    name: 行业、厂商、IP与重大舆情
+    prompt: prompts/crisis_deep_dive.md
+  M3:
+    name: Convention与大型声量节点
+    prompt: prompts/convention_analysis.md
+  M4:
+    name: 产品重大节点与版本变化
+    prompt: prompts/product_change_analysis.md
+  M5:
+    name: 内容宣传路线与资产矩阵
+    prompt: prompts/asset_campaign_analysis.md
+  M6:
+    name: 宣传资产与游戏内资产观察
+    prompt: prompts/asset_campaign_analysis.md
+  M7:
+    name: 玩家公开反馈与社区表达
+    prompt: prompts/player_voice.md
+  M8:
+    name: 创意广告、Commercial、OOH、UGC与社群活动
+    prompt: prompts/asset_campaign_analysis.md
+  M9:
+    name: 预告与未来动作雷达
+    prompt: prompts/forecast_radar.md
+  M10:
+    name: 反面案例与发行风险
+    prompt: prompts/crisis_deep_dive.md
+  M11:
+    name: 试玩、测试与Early Access
+    prompt: prompts/evidence_enrichment.md
+  M12:
+    name: 奖励资产与激励机制
+    prompt: prompts/business_analysis.md
+infrastructure:
+  calendar: prompts/calendar_update.md
+  report: prompts/report_compose.md
+  qa: prompts/final_qa.md

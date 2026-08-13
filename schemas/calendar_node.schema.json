@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Calendar Node",
+  "type": "object",
+  "required": [
+    "node_id",
+    "event_id",
+    "date_start",
+    "date_precision",
+    "market",
+    "type",
+    "status",
+    "source_url",
+    "last_verified"
+  ],
+  "properties": {
+    "node_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "date_start": {
+      "type": "string"
+    },
+    "date_end": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "date_precision": {
+      "type": "string",
+      "enum": [
+        "exact_day",
+        "exact_range",
+        "estimated_range"
+      ]
+    },
+    "market": {
+      "type": [
+        "string",
+        "array"
+      ]
+    },
+    "type": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "已确认",
+        "高可信",
+        "待人工确认",
+        "动态通知"
+      ]
+    },
+    "p0_condition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "last_verified": {
+      "type": "string"
+    },
+    "related_case_anchor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "what_to_watch": {
+      "type": [
+        "string",
+        "array",
+        "null"
+      ]
+    }
+  }
+}

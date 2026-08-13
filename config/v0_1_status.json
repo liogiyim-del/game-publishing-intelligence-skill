@@ -1,0 +1,35 @@
+{
+  "version": "0.1.2",
+  "primary_platforms": [
+    "Codex",
+    "WorkBuddy"
+  ],
+  "platform_strategy": "platform-agnostic",
+  "invocation_mode": "user_initiated",
+  "scheduled_background_scan_required": false,
+  "golden_template": "templates/dynamic_report.html",
+  "golden_examples_planned": [
+    "PRAGMATA",
+    "Modern Warfare 4",
+    "Crimson Desert"
+  ],
+  "source_of_truth": "动态游戏发行与营销情报Skill_0-1需求文档_v1.1",
+  "default_execution_mode": "full_pipeline",
+  "full_pipeline_must_end_with_html_file": true,
+  "regular_trigger_min_cases_is_hard_gate": false,
+  "bugfixes": [
+    "修复主动扫描在Markdown路由摘要阶段提前结束",
+    "新增Orchestrator强制完整链路",
+    "至少1个正式事件即可生成动态HTML",
+    "仅用户明确要求阶段性结果时允许提前停止"
+  ],
+  "calendar_mode": "single_large_calendar",
+  "duplicate_calendar_table_forbidden": true,
+  "visualization_first": true,
+  "visual_hierarchy": [
+    "conclusion",
+    "mechanism",
+    "key_data",
+    "evidence"
+  ]
+}

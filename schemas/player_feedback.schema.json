@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Player Feedback Sample",
+  "type": "object",
+  "required": [
+    "platform",
+    "time_range",
+    "sample_size",
+    "query",
+    "dedup_method",
+    "original_text",
+    "zh_translation",
+    "theme_label",
+    "privacy_redacted"
+  ],
+  "properties": {
+    "platform": {
+      "type": "string"
+    },
+    "market": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "time_range": {
+      "type": "string"
+    },
+    "sample_size": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "query": {
+      "type": [
+        "string",
+        "array"
+      ]
+    },
+    "dedup_method": {
+      "type": "string"
+    },
+    "original_text": {
+      "type": [
+        "string",
+        "array"
+      ]
+    },
+    "zh_translation": {
+      "type": [
+        "string",
+        "array"
+      ]
+    },
+    "theme_label": {
+      "type": [
+        "string",
+        "array"
+      ]
+    },
+    "privacy_redacted": {
+      "type": "boolean"
+    },
+    "sample_scope": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ]
+    },
+    "representativeness_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "manual_review_needed": {
+      "type": "boolean"
+    }
+  }
+}

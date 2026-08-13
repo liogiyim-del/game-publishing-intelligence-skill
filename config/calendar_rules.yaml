@@ -1,0 +1,40 @@
+version: 0.1.2
+horizon: 全年 + 未来30–60天重点
+date_handling:
+  confirmed_date: 进入具体日期
+  confirmed_range: 进入日期范围
+  estimated_range: 标记预计/待确认，不与确认日期混淆
+  no_date: 进入持续监测，不硬塞Calendar
+statuses:
+- 已确认
+- 高可信
+- 待人工确认
+- 动态通知
+must_link_bidirectionally: true
+golden_template_locked:
+- 单一全宽大日历
+- 优先级视觉编码
+- 确认/预计状态分离
+- 案例与Calendar双向跳转
+- 不使用Calendar下方重复日期表
+presentation_mode: single_large_calendar
+calendar_is_primary_visual: true
+duplicate_date_table_forbidden: true
+visual_priority_encoding:
+  P0_or_strategic: red
+  high_priority: orange
+  normal_attention: blue
+  watch_only: gray
+  estimated_or_unconfirmed: dashed_outline
+event_display_rules:
+- 所有明确日期和明确时间范围直接落在大日历日期格内。
+- 同一天多个事件允许在同一日期格内堆叠展示。
+- 跨日事件优先用连续日期或范围视觉表达，不再额外复制为下方表格。
+- 日期不确定但有预计范围时，使用虚线/预计状态，不能与确认节点混淆。
+- 完全无日期的事项进入持续监测，不硬塞 Calendar。
+- 每个日历事件可直接跳转到对应案例或监测条目。
+- Calendar 与案例保持双向锚点。
+future_horizon:
+  main_calendar: 当前月为主
+  cross_month_strip: 未来30–90天仅保留最高价值跨月节点
+  rule: 跨月节点使用轻量未来节点带，不使用重复日期表。

@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/game-intelligence/evidence.schema.json",
+  "title": "Game Intelligence Evidence",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "event_id",
+    "type",
+    "source_url",
+    "source_name",
+    "captured_at",
+    "claim_supported",
+    "confidence",
+    "limitations",
+    "evidence_type",
+    "claim_scope",
+    "source_status"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "official",
+        "data",
+        "player",
+        "media",
+        "other"
+      ]
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "source_name": {
+      "type": "string"
+    },
+    "published_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "captured_at": {
+      "type": "string"
+    },
+    "raw_value": {},
+    "claim_supported": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "limitations": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "market": {
+      "type": [
+        "string",
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "platform": {
+      "type": [
+        "string",
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_type": {
+      "type": "string"
+    },
+    "claim_scope": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "sample_scope": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ]
+    },
+    "behavior_evidence_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_status": {
+      "type": "string",
+      "enum": [
+        "confirmed",
+        "partially_confirmed",
+        "inferred",
+        "unknown",
+        "not_applicable"
+      ]
+    },
+    "can_prove": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cannot_prove": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "copyright_or_usage_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
